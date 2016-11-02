@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>National Park Geek</title>
-    <c:url value="/css/nationalparklist" var="cssHref" />
+    <c:url value="/css/nationalparklist.css" var="cssHref" />
     <link rel="stylesheet" href="${cssHref}">
 </head>
 
@@ -16,7 +16,6 @@
         		<img src="${logoSrc}" alt="National Park Geek logo" />
         </a>
         <h1>National Parks</h1>
-    </header>
     <nav>
         <ul>
     		<li><a href="${parksHref}">Home</a></li>
@@ -24,3 +23,4 @@
     		<li><a href="${surveyHref}">Survey</a></li>
         </ul>
     </nav>
+    </header>

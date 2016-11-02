@@ -1,5 +1,8 @@
 package com.techelevator.npgeek.model;
 
-public class ParkListDao {
+import java.util.List;
 
+public interface ParkListDao {
+
+	public List<Park> getAllParks();
 }
