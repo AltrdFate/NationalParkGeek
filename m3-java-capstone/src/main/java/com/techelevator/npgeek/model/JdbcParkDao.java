@@ -31,12 +31,39 @@ public class JdbcParkDao implements ParkListDao{
 		while(results.next()) {
 			Park park = new Park();
 			park.setParkCode(results.getString("parkcode"));
+			park.setParkImageName(results.getString("parkcode").toLowerCase());
 			park.setParkName(results.getString("parkname"));
 			park.setState(results.getString("state"));
 			park.setParkDescription(results.getString("parkdescription"));
+			
 			parks.add(park);
 		}
 		return parks;
 	}
 
+	@Override
+	public Park getParkByParkCode(String parkcode) {
+		Park park = new Park();
+		String sqlSelectParkByCode = "SELECT * FROM park WHERE parkcode = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectParkByCode, parkcode);
+		while(results.next()){
+			park.setAcerage(results.getInt("acreage"));
+			park.setAnnualvisitorcount(results.getInt("annualvisitorcount"));
+			park.setClimate(results.getString("climate"));
+			park.setElevation(results.getInt("elevationinfeet"));
+			park.setInspirationalquote(results.getString("inspirationalquote"));
+			park.setMilesoftrail(results.getFloat("milesoftrail"));
+			park.setNumberofcampsites(results.getInt("numberofcampsites"));
+			park.setParkCode(results.getString("parkcode"));
+			park.setParkDescription(results.getString("parkdescription"));
+			park.setParkImageName(results.getString("parkcode").toLowerCase());
+			park.setParkName(results.getString("parkname"));
+			park.setState(results.getString("state"));
+			park.setYearfounded(results.getInt("yearfounded"));
+		
+		}
+		return park;
+	}
+
+	
 }
