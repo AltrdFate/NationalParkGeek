@@ -15,6 +15,7 @@ public class Park {
 	private int yearfounded; 
 	private int annualvisitorcount;
 	private String inspirationalquote;
+	private String inspirationalQuoteSource;
 	
 	public String getParkName() {
 		return parkname;
@@ -106,6 +107,12 @@ public class Park {
 	}
 	public void setInspirationalquote(String inspirationalquote) {
 		this.inspirationalquote = inspirationalquote;
+	}
+	public String getInspirationalQuoteSource() {
+		return inspirationalQuoteSource;
+	}
+	public void setInspirationalQuoteSource(String inspirationalQuoteSource) {
+		this.inspirationalQuoteSource = inspirationalQuoteSource;
 	} 
 	
 }

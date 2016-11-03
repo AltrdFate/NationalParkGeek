@@ -5,20 +5,21 @@
 	<section  class="parkDetail">
 		<c:url value="img/parks/${park.parkImageName}.jpg" var="parkImgURL"/>
 		<img src="${parkImgURL}" alt="${park.parkName}"/>
-		<h1><c:out value="${park.parkName}"/></h1>
+		<div>
+			<h1><c:out value="${park.parkName}"/></h1>
+			<c:out value="${park.parkDescription}"/>
+		</div>
 		<ul>
-			<li><c:out value="${park.parkDescription}"/></li>
 			<li>Year Founded: <c:out value="${park.yearfounded}"/></li>
-			<li><c:out value="${park.annualvisitorcount}"/></li>
-			<li><c:out value="${park.inspirationalquote}"/></li>
-			<li><c:out value="${park.climate}"/></li>
-			<li><c:out value="${park.numberofcampsites}"/></li>
-			<li><c:out value="${park.milesoftrail}"/></li>
-			<li><c:out value="${park.elevation}"/></li>
-			<li><c:out value="${park.acerage}"/></li>
-			<li><c:out value="${park.state}"/></li>
+			<li><c:out value="${park.annualvisitorcount} annual visitors"/></li>
+			<li><c:out value="Climate: ${park.climate}"/></li>
+			<li><c:out value="${park.numberofcampsites} campsites"/></li>
+			<li><c:out value="${park.milesoftrail} miles of trail"/></li>
+			<li><c:out value="${park.elevation} foot elevation"/></li>
+			<li><c:out value="${park.acerage} acres"/></li>
+			<li><c:out value="Located in ${park.state}"/></li>
 		</ul>
-		
+		<i><q><c:out value="${park.inspirationalquote}"/></q></i> - ${park.inspirationalQuoteSource}
 	</section>
 	
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

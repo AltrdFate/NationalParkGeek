@@ -10,13 +10,13 @@
 
 <body>
     <header>
-    		<c:url value="/" var="parksHref" />
     		<c:url value="/img/logo.png" var="logoSrc" />
         <a href="${parksHref}">
         		<img src="${logoSrc}" alt="National Park Geek logo" />
         </a>
         <h1>National Parks</h1>
     <nav>
+    	<c:url value="/" var="parksHref" />
         <ul>
     		<li><a href="${parksHref}">Home</a></li>
     			<c:url value="survey" var="surveyHref"/>

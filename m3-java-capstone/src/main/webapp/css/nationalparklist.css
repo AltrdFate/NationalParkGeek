@@ -23,7 +23,7 @@ header img {
 }
 
 nav {
-	margin-top: 50px;
+	margin-top: 0px;
 	margin-bottom: 50px;
 }
 
@@ -33,7 +33,7 @@ nav h2 {
 }
 
 ul {
-	padding-left: 80px;
+	padding-left: 0px;
 }
 
 li {
@@ -55,7 +55,7 @@ nav ul {
 
 nav ul li {
 	float: left;
-	margin-right: 20px;
+	margin-right: 20px; 
 	background-color: #009900;
 	border-radius: 8px;
 	list-style: none;
@@ -90,5 +90,6 @@ li a:hover {
 	padding-left: 20px;
 }
 .parkDetail ul {
-	list-style-type: none;
-}
+/*  	list-style-type: none; */
+	padding-left: 20px;
+ }
