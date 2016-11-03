@@ -19,7 +19,7 @@
     	<c:url value="/" var="parksHref" />
         <ul>
     		<li><a href="${parksHref}">Home</a></li>
-    			<c:url value="survey" var="surveyHref"/>
+    			<c:url value="/surveyResults" var="surveyHref"/>
     		<li><a href="${surveyHref}">Survey</a></li>
         </ul>
     </nav>

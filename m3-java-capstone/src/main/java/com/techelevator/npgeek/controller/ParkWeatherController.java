@@ -28,6 +28,7 @@ private ParkWeatherDao weatherDao ;
 								ModelMap model){
 		
 		List<ParkWeather> weather = weatherDao.getParkWeatherByCode(parkcode);
+		
 		model.put("weather", weather);
 		
 		return "viewWeather";
