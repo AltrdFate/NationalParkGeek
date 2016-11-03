@@ -20,6 +20,9 @@
 			<li><c:out value="Located in ${park.state}"/></li>
 		</ul>
 		<i><q><c:out value="${park.inspirationalquote}"/></q></i> - ${park.inspirationalQuoteSource}
+		<div>
+			
+		</div>
 	</section>
 	
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
