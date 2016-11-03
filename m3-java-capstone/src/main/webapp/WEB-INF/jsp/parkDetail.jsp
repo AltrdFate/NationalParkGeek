@@ -21,7 +21,10 @@
 		</ul>
 		<i><q><c:out value="${park.inspirationalquote}"/></q></i> - ${park.inspirationalQuoteSource}
 		<div>
-			
+			<c:url value="/viewWeather" var="weatherHref">
+				<c:param name="parkcode" value="${park.parkCode}"/>
+			</c:url>
+			<a href="${weatherHref}"><c:out value="View weather for this park"/></a>
 		</div>
 	</section>
 	

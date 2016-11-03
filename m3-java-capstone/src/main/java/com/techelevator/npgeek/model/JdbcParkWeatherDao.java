@@ -1,7 +1,9 @@
 package com.techelevator.npgeek.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -20,17 +22,34 @@ public class JdbcParkWeatherDao implements ParkWeatherDao {
 		this.jdbcTemplate= new JdbcTemplate(dataSource);
 	}
 
-	//need to make it take more than one day
+
 	@Override
-	public List<ParkWeather> getParkWeatherByCode(String parkCode) {
-		ParkWeather weather = new ParkWeather();
-		String sqlSelectWeatherByCode = "SELECT * FROM weather WHERE parkcode = ?";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectWeatherByCode, parkCode);
+	public List<ParkWeather> getParkWeatherByCode(String parkcode) {
+		
+		String sqlSelectWeatherByCode = "SELECT * FROM weather WHERE parkcode = ? ;";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectWeatherByCode, parkcode);
 		List<ParkWeather> weatherList = new ArrayList<>();
 		while(results.next()) {
-			weather.se
+			ParkWeather weather = new ParkWeather();
+			weather.setFiveDayForecastValue(results.getInt("fivedayforecastvalue"));
+			weather.setForecast(results.getString("forecast"));
+			weather.setHigh(results.getInt("high"));
+			weather.setLow(results.getInt("low"));
+			weather.setParkCode(results.getString("parkcode"));
+			weatherList.add(weather);
 		}
-		return null;
+		return weatherList;
 	}
+
+	/*@Override
+	public ParkWeather getParkWeatherByDay(String parkcode, int day) {
+		ParkWeather weather = new ParkWeather();
+		String sqlSelectWeatherByDay = "SELECT * FROM weather WHERE parkcode = ? && fivedayforecastvalue = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectWeatherByDay, parkcode, day);
+		while()
+		return weather;
+	}*/
+	
+	
 
 }

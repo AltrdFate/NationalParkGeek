@@ -2,23 +2,27 @@ package com.techelevator.npgeek.model;
 
 public class ParkWeather {
 	
-	private String parkCode;
-	private int fiveDayForecastValue;
+	private String parkcode;
+	private int fivedayforecastvalue;
 	private int low;
 	private int high;
 	private String forecast;
+	private String forecastRecomendation;
+	private String tempRecomendation;
+	private String tempDifference;
+	private int celciusTemp;
 	
 	public String getParkCode() {
-		return parkCode;
+		return parkcode;
 	}
-	public void setParkCode(String parkCode) {
-		this.parkCode = parkCode;
+	public void setParkCode(String parkcode) {
+		this.parkcode = parkcode;
 	}
 	public int getFiveDayForecastValue() {
-		return fiveDayForecastValue;
+		return fivedayforecastvalue;
 	}
-	public void setFiveDayForecastValue(int fiveDayForecastValue) {
-		this.fiveDayForecastValue = fiveDayForecastValue;
+	public void setFiveDayForecastValue(int fivedayforecastvalue) {
+		this.fivedayforecastvalue = fivedayforecastvalue;
 	}
 	public int getLow() {
 		return low;
@@ -39,4 +43,43 @@ public class ParkWeather {
 		this.forecast = forecast;
 	}
 
+	public String getForecastRecomendation(){
+	
+		if(forecast.equals("rain")){
+			forecastRecomendation = "Don't Forget Your Umbrella";
+		}
+		else if(forecast.equals("snow")){
+			forecastRecomendation ="Don't Forget Your Snow Shoes";
+		}
+		else if(forecast.equals("thunderstorms")){
+			forecastRecomendation ="Don't Get Struck By Lightening";
+		}
+		else {
+			forecastRecomendation ="Don't Forget Your Sun Screen";
+		}
+		return forecastRecomendation;
+	}
+	
+	public void convertToCelcius(){
+			high = (int)((high - 32) * 1.8);	
+			low = (int)((low -32) * 1.8);
+	}
+	
+	public String getTempRecomendation(){
+		if(high >= 75){
+			tempRecomendation= "Be sure to bring an extra gallon of water";
+		}
+		if(low <= 20){
+			tempRecomendation ="Be ware the dangers of exposure to frigid temperatures";
+		}
+		return tempRecomendation;
+	}
+	
+	public String getTempDifference(){
+		if((high-low) >= 20){
+			tempDifference= "Be sure to wear breathable layers";
+		}
+		
+		return tempDifference;
+	}
 }
