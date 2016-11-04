@@ -14,7 +14,7 @@
 				<h3><c:out value="${park.parkName}"/></h3>
 				<h5>Location: <c:out value="${park.state}"/></h5>
 				<p><c:out value="${park.parkDescription}"/></p>
-				<hr>
+		
 			</div>
 			</c:forEach>
 		</div>

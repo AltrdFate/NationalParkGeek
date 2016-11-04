@@ -6,13 +6,17 @@
 		<h1>Survey Results</h1>
 		<c:url value="survey" var="surveyURL"/>
 		<h2><a href="${surveyURL}">Take Survey</a></h2>
-		<c:forEach items="${posts}" var="post">
-			<div>
-				<ul>
-					<li><c:out value="${post.parkcode}"/></li>
-				</ul>
-			</div>
-		</c:forEach>
-		
+		<table>
+			<tr>
+				<td>Park</td>
+				<td>Votes</td>
+			</tr>
+			<c:forEach items="${parks}" var="park">
+				<tr>
+					<td><c:out value="${park.parkname}"/> </td>
+					<td> <c:out value="${park.count}"/></td>
+				</tr>
+			</c:forEach>
+		</table>
 	</section>
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

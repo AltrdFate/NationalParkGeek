@@ -61,6 +61,7 @@ public class JdbcParkDao implements ParkListDao{
 			park.setState(results.getString("state"));
 			park.setYearfounded(results.getInt("yearfounded"));
 			park.setInspirationalQuoteSource(results.getString("inspirationalquotesource"));
+			park.setEntryfee(results.getInt("entryfee"));
 		}
 		return park;
 	}

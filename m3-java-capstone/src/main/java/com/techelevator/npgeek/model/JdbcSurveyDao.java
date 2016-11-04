@@ -37,6 +37,21 @@ public class JdbcSurveyDao implements SurveyDao {
 		}
 		return posts;
 	}
+	
+	@Override
+	public List<Park> getSurveyResults(){
+		List<Park> parks = new ArrayList<>();
+		String sqlSelectSurveyResults = "SELECT p.parkname, COUNT(s.parkcode) FROM survey_result s JOIN park p ON"
+				+ " p.parkcode=s.parkcode GROUP BY p.parkname; ";
+		SqlRowSet results= jdbcTemplate.queryForRowSet(sqlSelectSurveyResults);
+		while(results.next()){
+			Park park = new Park();
+			park.setParkName(results.getString("parkname"));
+			park.setCount(results.getInt("count"));
+			parks.add(park);
+		}
+		return parks;
+	}
 
 	@Override
 	public void save(SurveyPost post) {

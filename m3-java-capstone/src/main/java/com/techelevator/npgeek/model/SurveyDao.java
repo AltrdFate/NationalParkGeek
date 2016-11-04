@@ -9,4 +9,5 @@ public interface SurveyDao {
 
 	public List<SurveyPost> getAllPosts();
 	public void save(SurveyPost post);
+	List<Park> getSurveyResults();
 }

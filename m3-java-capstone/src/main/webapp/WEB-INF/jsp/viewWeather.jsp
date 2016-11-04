@@ -4,7 +4,7 @@
 
 <section>
 	<div>
-		<section>
+		<section class="weatherContainer2">
 				<h1>Today's Forecast</h1>
 				<c:url value="img/weather/${weather[0].forecast}.png" var="imgURL"/>
 				<c:set value="partly cloudy" var="pc"/>
@@ -12,10 +12,10 @@
 					<c:url value="img/weather/partlyCloudy.png" var="imgURL"/>
 				</c:if>
 				<p><img src="${imgURL}"/></p>
-				<p>${weather[0].high}</p>
-				<p>${weather[0].low}</p>
-				<p>${weather[0].forecast}</p>
-				<p>${weather[0].forecastRecomendation}</p>
+				<p>High: <c:out value="${weather[0].high}"/></p>
+				<p>Low: <c:out value="${weather[0].low}"/></p>
+				<p>Forecast: <c:out value="${weather[0].forecast}"/></p>
+				<p><c:out value="${weather[0].forecastRecomendation}"/></p>
 				<c:if test="${weather[0].high >= 75 }">
 					<p> Bring an Extra Gallon of Water</p>
 				</c:if>
@@ -26,7 +26,7 @@
 					<p>Be ware of frigid temperatures</p>
 				</c:if>
 		</section>
-		<section>
+		<section id="forecast">
 			<h2>Five Day Forecast</h2>
 			<c:forEach items="${weather}" var="weather">
 				<div class="weatherContainer">

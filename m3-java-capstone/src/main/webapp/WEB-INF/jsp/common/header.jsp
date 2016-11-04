@@ -14,7 +14,7 @@
         <a href="${parksHref}">
         		<img src="${logoSrc}" alt="National Park Geek logo" />
         </a>
-        <h1>National Parks</h1>
+   
     <nav>
     	<c:url value="/" var="parksHref" />
         <ul>

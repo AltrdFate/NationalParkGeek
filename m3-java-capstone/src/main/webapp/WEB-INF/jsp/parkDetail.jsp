@@ -18,6 +18,7 @@
 			<li><c:out value="${park.elevation} foot elevation"/></li>
 			<li><c:out value="${park.acerage} acres"/></li>
 			<li><c:out value="Located in ${park.state}"/></li>
+			<li><c:out value="Entry fee: $ ${park.entryfee}.00"/></li>
 		</ul>
 		<i><q><c:out value="${park.inspirationalquote}"/></q></i> - ${park.inspirationalQuoteSource}
 		<div>

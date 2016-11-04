@@ -10,12 +10,14 @@ public class Park {
 	private int acerage;
 	private int elevation;
 	private float milesoftrail;
+	private int entryfee;
 	private int numberofcampsites;
 	private String climate;
 	private int yearfounded; 
 	private int annualvisitorcount;
 	private String inspirationalquote;
 	private String inspirationalQuoteSource;
+	private int count;
 	
 	public String getParkName() {
 		return parkname;
@@ -113,6 +115,24 @@ public class Park {
 	}
 	public void setInspirationalQuoteSource(String inspirationalQuoteSource) {
 		this.inspirationalQuoteSource = inspirationalQuoteSource;
+	}
+	public String getParkcode() {
+		return parkcode;
+	}
+	public void setParkcode(String parkcode) {
+		this.parkcode = parkcode;
+	}
+	public int getEntryfee() {
+		return entryfee;
+	}
+	public void setEntryfee(int entryfee) {
+		this.entryfee = entryfee;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	} 
 	
 }
