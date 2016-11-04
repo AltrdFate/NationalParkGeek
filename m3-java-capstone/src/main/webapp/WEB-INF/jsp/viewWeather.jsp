@@ -16,15 +16,42 @@
 				<p>Low: <c:out value="${weather[0].low}"/></p>
 				<p>Forecast: <c:out value="${weather[0].forecast}"/></p>
 				<p><c:out value="${weather[0].forecastRecomendation}"/></p>
-				<c:if test="${weather[0].high >= 75 }">
-					<p> Bring an Extra Gallon of Water</p>
-				</c:if>
-				<c:if test="${weather[0].high - weather[0].low >= 20 }">
-					<p> Wear Breathable Layers</p>
-				</c:if>
-				<c:if test="${weather[0].low <= 20 }">
-					<p>Be ware of frigid temperatures</p>
-				</c:if>
+				
+				<c:choose>
+					<c:when test="${weather[0].isFahrenheit == 'true'}">
+						<c:if test="${weather[0].high >= 75 }">
+							<p> Bring an Extra Gallon of Water</p>
+						</c:if>
+						<c:if test="${weather[0].high - weather[0].low >= 20 }">
+							<p> Wear Breathable Layers</p>
+						</c:if>
+						<c:if test="${weather[0].low <= 20 }">
+							<p>Be ware of frigid temperatures</p>
+						</c:if>
+					</c:when>
+					<c:otherwise>
+						<c:if test="${weather[0].high >= 23 }">
+							<p> Bring an Extra Gallon of Water</p>
+						</c:if>
+						<c:if test="${weather[0].high - weather[0].low >= -6}">
+							<p> Wear Breathable Layers</p>
+						</c:if>
+						<c:if test="${weather[0].low <= -6 }">
+							<p>Be ware of frigid temperatures</p>
+						</c:if>
+					</c:otherwise>
+				</c:choose>
+				<div>
+				<c:url value="/viewWeather" var="weatherURL">
+					<c:param name="isFahrenheit" value="${weather[0].isFahrenheit}"/>
+					<c:param name="parkcode" value="${param.parkcode}"/>
+				</c:url>
+				<form method="POST" action="${weatherURL}">
+					<input type="submit" value="Convert Temperature"/>
+					
+				</form>
+				</div>
+
 		</section>
 		<section id="forecast">
 			<h2>Five Day Forecast</h2>

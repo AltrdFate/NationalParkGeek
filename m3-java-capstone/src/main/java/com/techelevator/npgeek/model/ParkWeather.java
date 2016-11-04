@@ -11,6 +11,9 @@ public class ParkWeather {
 	private String tempRecomendation;
 	private String tempDifference;
 	private int celciusTemp;
+	private String isFahrenheit = "true";
+	private int highC;
+	private int lowC;
 	
 	public String getParkCode() {
 		return parkcode;
@@ -42,6 +45,21 @@ public class ParkWeather {
 	public void setForecast(String forecast) {
 		this.forecast = forecast;
 	}
+	
+	/*public void setHighC(){
+		this.highC = convertToCelcius(this.high);
+	}
+	public int getHighC(){
+		highC = convertToCelcius(high);
+		return highC;
+	}
+	
+	public void setLowC(){
+		this.lowC = convertToCelcius(this.low);
+	}
+	public int getLowC(){
+		return convertToCelcius(this.low);
+	}*/
 
 	public String getForecastRecomendation(){
 	
@@ -60,9 +78,26 @@ public class ParkWeather {
 		return forecastRecomendation;
 	}
 	
-	public void convertToCelcius(){
-			high = (int)((high - 32) * 1.8);	
-			low = (int)((low -32) * 1.8);
+	/*private int convertToCelcius(int num){
+		
+			num = (int)((high - 32) * 1.8);	
+			return num;
+	}*/
+	
+	public void convertToCelsius() {
+		if(isFahrenheit.equals("true")) {
+			high = (int)((high - 32) / 1.8);	
+			low = (int)((low - 32) / 1.8);
+			isFahrenheit = "false";
+		}
+	}
+	
+	public void convertToFahrenheit() {
+		if(isFahrenheit.equals("false")) {
+			high = (int)((high + 32) * 1.8);	
+			low = (int)((low + 32) *1.8);
+			isFahrenheit = "true";
+		}
 	}
 	
 	public String getTempRecomendation(){
@@ -81,5 +116,12 @@ public class ParkWeather {
 		}
 		
 		return tempDifference;
+	}
+	
+	public String getIsFahrenheit() {
+		return isFahrenheit;
+	}
+	public void setFahrenheit(String isFahrenheit) {
+		this.isFahrenheit = isFahrenheit;
 	}
 }

@@ -36,6 +36,7 @@ public class JdbcParkWeatherDao implements ParkWeatherDao {
 			weather.setHigh(results.getInt("high"));
 			weather.setLow(results.getInt("low"));
 			weather.setParkCode(results.getString("parkcode"));
+			weather.setFahrenheit("true");
 			weatherList.add(weather);
 		}
 		return weatherList;
