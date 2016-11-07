@@ -78,12 +78,6 @@ public class ParkWeather {
 		return forecastRecomendation;
 	}
 	
-	/*private int convertToCelcius(int num){
-		
-			num = (int)((high - 32) * 1.8);	
-			return num;
-	}*/
-	
 	public void convertToCelsius() {
 		if(isFahrenheit.equals("true")) {
 			high = (int)((high - 32) / 1.8);	

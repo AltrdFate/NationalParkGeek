@@ -48,7 +48,6 @@
 				</c:url>
 				<form method="POST" action="${weatherURL}">
 					<input type="submit" value="Convert Temperature"/>
-					
 				</form>
 				</div>
 

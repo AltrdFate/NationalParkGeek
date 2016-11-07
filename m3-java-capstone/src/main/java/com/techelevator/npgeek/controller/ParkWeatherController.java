@@ -34,11 +34,26 @@ private ParkWeatherDao weatherDao ;
 	public String displayWeather(@RequestParam String parkcode,
 								ModelMap model){
 		List<ParkWeather> weather = null;
-		if(model.containsAttribute("weather")) {
-			weather = (List<ParkWeather>) model.get("weather");
-		} else {
+		//if(model.containsAttribute("weather")) {
+			//weather = (List<ParkWeather>) model.get("weather");
+			//weather = (List<ParkWeather>) model.get("weather");
 			weather = weatherDao.getParkWeatherByCode(parkcode);
-		}
+			String isFahrenheit = (String) model.get("userChoice");
+			if(isFahrenheit == null ) {
+				isFahrenheit = "true";
+			}
+			if(isFahrenheit.equals("true")) {
+				for(ParkWeather w: weather) {
+					w.convertToCelsius();
+				}
+			} else {
+				for(ParkWeather w: weather) {
+					w.convertToFahrenheit();
+				}
+			}
+		/*} else {
+			weather = weatherDao.getParkWeatherByCode(parkcode);
+		}*/
 		model.put("weather", weather);
 		
 		return "viewWeather";
@@ -49,26 +64,22 @@ private ParkWeatherDao weatherDao ;
 										@RequestParam String isFahrenheit,
 										ModelMap model){
 		
-		List<ParkWeather> weather = (List<ParkWeather>) model.get("weather");
+		/*List<ParkWeather> weather = (List<ParkWeather>) model.get("weather");
 		weather = weatherDao.getParkWeatherByCode(parkcode);
-		User userChoice = new User();
-		userChoice.setUserPreference("true");
 		if(isFahrenheit.equals("true")) {
 			for(ParkWeather w: weather) {
 				w.convertToCelsius();
-				userChoice.setUserPreference(w.getIsFahrenheit());
 			}
 		} else {
 			for(ParkWeather w: weather) {
 				w.convertToFahrenheit();
-				userChoice.setUserPreference(w.getIsFahrenheit());
 			}
-		}
+		}*/
 		
-		model.addAttribute("userChoice", userChoice);
-		model.put("weather", weather);
-
-		return "viewWeather";
+		model.addAttribute("userChoice", isFahrenheit);
+		//model.put("weather", weather);
+		model.put("parkcode", parkcode);
+		return "redirect:/viewWeather";
 	}
 	
 	
